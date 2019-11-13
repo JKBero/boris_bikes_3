@@ -9,7 +9,7 @@ describe DockingStation do
     end
 
     it "returns true if working? method is called" do
-      expect((subject.release_bike).working?).to eq true
+      expect((subject.release_bike).working?).to be true
     end
 
   end
