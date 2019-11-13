@@ -14,4 +14,12 @@ describe DockingStation do
 
   end
 
+  describe "#dock()" do
+    it { is_expected.to respond_to(:dock).with(1).argument }
+  end
+
+  describe "#view_bikes" do
+  it { is_expected.to respond_to(:view_bikes) }
+  end
+
 end
