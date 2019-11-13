@@ -15,6 +15,7 @@ class DockingStation
   end
 
   def view_bikes
+    @bike_list
   end
 
 end

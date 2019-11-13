@@ -11,7 +11,6 @@ describe DockingStation do
     it "returns true if working? method is called" do
       expect((subject.release_bike).working?).to be true
     end
-
   end
 
   describe "#dock()" do
@@ -25,7 +24,12 @@ describe DockingStation do
   end
 
   describe "#view_bikes" do
-  it { is_expected.to respond_to(:view_bikes) }
+    it { is_expected.to respond_to(:view_bikes) }
+
+    it "returns the bike_list" do
+      list = subject.bike_list
+      expect(subject.view_bikes).to eq list
+    end
   end
 
 end
