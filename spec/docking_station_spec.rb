@@ -5,30 +5,40 @@ describe DockingStation do
 
   describe "#release_bike" do
     it "responds to the method release_bike" do
-      expect(subject).to respond_to(:release_bike)
+      bike = Bike.new
+      subject.dock(bike)
+      expect(subject.release_bike).to eq bike
     end
 
     it "returns true if working? method is called" do
+      bike = Bike.new
+      subject.dock(bike)
       expect((subject.release_bike).working?).to be true
     end
+
+    it "raises en error if there is no bike" do
+      expect { subject.release_bike }.to raise_error("No bikes available")
+    end
+
   end
 
   describe "#dock()" do
     it { is_expected.to respond_to(:dock).with(1).argument }
 
-    it "takes a bike instance and adds to the bike_list" do
+    it "docks the bike" do
       bike = Bike.new
       subject.dock(bike)
-      expect(subject.bike_list).to include(bike)
+      expect(subject.bike).to eq bike
     end
   end
 
-  describe "#view_bikes" do
-    it { is_expected.to respond_to(:view_bikes) }
+  describe "#bike" do
+    it { is_expected.to respond_to(:bike) }
 
-    it "returns the bike_list" do
-      list = subject.bike_list
-      expect(subject.view_bikes).to eq list
+    it "returns the bike" do
+      bike = Bike.new
+      subject.dock(bike)
+      expect(subject.bike).to eq bike
     end
   end
 
