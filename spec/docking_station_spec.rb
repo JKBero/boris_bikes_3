@@ -16,6 +16,12 @@ describe DockingStation do
 
   describe "#dock()" do
     it { is_expected.to respond_to(:dock).with(1).argument }
+
+    it "takes a bike instance and adds to the bike_list" do
+      bike = Bike.new
+      subject.dock(bike)
+      expect(subject.bike_list).to include(bike)
+    end
   end
 
   describe "#view_bikes" do
