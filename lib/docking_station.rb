@@ -17,8 +17,4 @@ class DockingStation
     @bike_count += 1
   end
 
-  def bike
-    @bike
-  end
-
 end
