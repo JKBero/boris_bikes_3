@@ -6,6 +6,8 @@ class DockingStation
     @bikes = []
   end
 
+  DEFAULT_CAPACITY = 20
+
   def release_bike
     fail "No bikes available" if empty?
     @bikes.pop
@@ -19,7 +21,7 @@ class DockingStation
   private
 
   def full?
-    @bikes.length >= 20
+    @bikes.length >= DEFAULT_CAPACITY
   end
 
   def empty?
