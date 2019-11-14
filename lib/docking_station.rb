@@ -12,7 +12,7 @@ class DockingStation
   end
 
   def dock(bike)
-    fail "There is no space in the docking station." if @bike_count >= 1
+    fail "There is no space in the docking station." if @bike_count >= 20
     @bike = bike
     @bike_count += 1
   end
