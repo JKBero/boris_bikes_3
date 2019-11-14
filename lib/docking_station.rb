@@ -11,13 +11,8 @@ class DockingStation
     @bike = bike
   end
 
-def bike
-  @bike
-end
+  def bike
+    @bike
+  end
 
 end
-
-station = DockingStation.new
-bike = Bike.new
-station.dock(bike)
-station.release_bike
