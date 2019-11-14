@@ -1,20 +1,19 @@
 
 class DockingStation
-  attr_reader :bike
+  attr_reader :bikes
 
   def initialize
-    @bike_count = 0
+    @bikes = []
   end
 
   def release_bike
-    fail "No bikes available" unless @bike
-    @bike
+    fail "No bikes available" if @bikes.length < 1
+    @bikes.pop
   end
 
   def dock(bike)
-    fail "There is no space in the docking station." if @bike_count >= 20
-    @bike = bike
-    @bike_count += 1
+    fail "There is no space in the docking station." if @bikes.length >= 20
+    @bikes << bike
   end
 
 end
